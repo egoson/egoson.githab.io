@@ -19,7 +19,7 @@
                 v-b-modal.modal
               )
                 span.form__services-text {{ serviceItem.title }}
-                span {{ serviceItem.cost }} руб
+                span.flex-shrink-0 {{ serviceItem.cost }} руб
 
       p.form__service-info.mt-4.mb-2 Информация:
       span Принимаю на Красноармейской 142
@@ -32,21 +32,29 @@
     b-modal(
       id="modal"
       hide-footer
-      hide-header
+      title="Выбрана услуга:"
       centered
       v-model="modal"
     )
       b-form(@submit.prevent='send')
-        p Выбрана услуга
         b-btn(v-if="selected.title" variant="success" size="sm" disabled) {{ selected.title }}, {{ selected.cost }} руб
-        template(v-if="!selected.brow")
+        template(v-if="!selected.brow && selected.browDiscount")
           hr
           b-form-checkbox(switch size="lg" name="browDiscount" v-model='browDiscount')
             | Любые услуги на брови -50%&nbsp;😍
-          small Если вы выбрали макияж или прическу, получите скидку на брови!
+          small К полному образу скидка на брови!
         hr
-        TheMask.form__input-phone(mask="+7 (###) ###-##-##" placeholder="Ваш телефон" required name='phone' v-model='phone')
+        span Телефон
+        TheMask.form__input-phone(
+          mask="+7 (###) ###-##-##"
+          placeholder="+7 (999) 999-99-99"
+          required name='phone'
+          v-model='phone'
+          autocomplete='off'
+        )
+        span Дата
         b-input.mb-2(type="date" name="date" required v-model="date" placeholder="Введите дату")
+        span Время
         b-input.mb-4(type="time" name="time" required v-model="time" placeholder="Введите время")
         input.d-none(name="service" :value="selected.title")
         input.d-none(name="cost" :value="selected.cost")
@@ -80,27 +88,33 @@ export default {
           groupServices: [
             {
               title: 'На свадьбу',
-              cost: '6000'
+              cost: '6000',
+              browDiscount: true
             },
             {
               title: 'На свадьбу с репетицией',
-              cost: '8000'
+              cost: '8500',
+              browDiscount: true
             },
             {
               title: 'На фотосессию (при условии предоставления фотографий для публикации)',
-              cost: '2300'
+              cost: '2500',
+              browDiscount: true
             },
             {
               title: 'Прическа + макияж',
-              cost: '3000'
-            },
-            {
-              title: 'На выпускной',
-              cost: '4000'
+              cost: '3500',
+              browDiscount: true
             },
             {
               title: 'Полный образ с афрокудрями',
-              cost: '3500'
+              cost: '4000',
+              browDiscount: true
+            },
+            {
+              title: 'Детский образ',
+              cost: '1500',
+              browDiscount: true
             }
           ]
         },
@@ -112,8 +126,12 @@ export default {
               cost: '3000'
             },
             {
-              title: 'Макияж любой',
-              cost: '1600'
+              title: 'Макияж любой («совсем как будто не накрашено», «только глаза и губы подчеркнуть» и прочее)',
+              cost: '1800'
+            },
+            {
+              title: 'Детский макияж',
+              cost: '700'
             }
           ]
         },
@@ -121,20 +139,20 @@ export default {
           serviceTitle: 'Укладка',
           groupServices: [
             {
-              title: 'Укладки любые',
-              cost: '1900'
+              title: 'Укладки любые («чуть-чуть подзавить», «просто выпрямить, ну и объемчик» и тд)',
+              cost: '2000'
             },
             {
-              title: 'Прически любые',
-              cost: '1700'
+              title: 'Прически любые («мне только пару прядей подколоть»....)',
+              cost: '2100'
             },
             {
               title: 'Косички с канеколоном',
-              cost: '1000'
+              cost: '1300'
             },
             {
               title: 'Афрокудри',
-              cost: '2200'
+              cost: 'от 2500 до 3500'
             }
           ]
         },
@@ -142,18 +160,18 @@ export default {
           serviceTitle: 'Брови и реснички',
           groupServices: [
             {
-              title: 'Долговременная укладка бровей + коррекция и окрашивание краской\n',
+              title: 'Долговременная укладка бровей + коррекция и окрашивание краской',
               cost: '1600',
               brow: true
             },
             {
               title: 'Окрашивание краской / хной',
-              cost: '300',
+              cost: '400',
               brow: true
             },
             {
               title: 'Коррекция бровей',
-              cost: '300',
+              cost: '400',
               brow: true
             },
             {
@@ -201,6 +219,7 @@ export default {
   }
 
   &__services-text {
+    padding-right: 10px;
     font-weight: 500;
     text-align: left;
   }
@@ -211,7 +230,7 @@ export default {
 
   &__input-phone {
     display: block;
-    margin: 10px auto 12px;
+    margin: 0 auto 12px;
     width: 100%;
     border: 1px solid rgb(206, 212, 218);
     border-radius: 4px;
