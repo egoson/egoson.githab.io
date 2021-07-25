@@ -46,8 +46,8 @@
           small Если вы выбрали макияж или прическу, получите скидку на брови!
         hr
         TheMask.form__input-phone(mask="+7 (###) ###-##-##" placeholder="Ваш телефон" required name='phone' v-model='phone')
-        b-input.mb-2(type='date' name='date' required v-model='time' placeholder="Введите дату")
-        b-input.mb-4(type='time' name='time' required v-model='date' placeholder="Введите время")
+        b-input.mb-2(type='date' name='date' required v-model='date' placeholder="Введите дату")
+        b-input.mb-4(type='time' name='time' required v-model='time' placeholder="Введите время")
         input.d-none(name="service" :value="selected.title")
         input.d-none(name="cost" :value="selected.cost")
         .text-center(v-if="loading")
@@ -59,6 +59,7 @@
 
 <script>
 import { TheMask } from 'vue-the-mask'
+import moment from 'moment'
 import emailjs from 'emailjs-com';
 
 export default {
@@ -71,8 +72,8 @@ export default {
       browDiscount: true,
       selected: {},
       phone: '',
-      time: '',
-      date: '',
+      time: moment(new Date()).format('HH:mm'),
+      date: moment(new Date()).format('yyyy-MM-D'),
       services: [
         {
           serviceTitle: 'Полный образ',
@@ -210,7 +211,7 @@ export default {
 
     &__input-phone {
       display: block;
-      margin: 10px auto 8px;
+      margin: 10px auto 12px;
       width: 100%;
       border: 1px solid rgb(206, 212, 218);
       border-radius: 4px;
