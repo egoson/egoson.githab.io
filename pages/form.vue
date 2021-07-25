@@ -176,9 +176,9 @@ export default {
       } catch (e) {
         this.$bvToast.show('toast')
         this.modal = false
+      } finally {
+        this.loading = false
       }
-
-      this.loading = false
     }
   }
 }
