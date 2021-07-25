@@ -1,8 +1,8 @@
 <template lang='pug'>
   .start-page
     b-container.text-center.pb-5
-      img.start-page__image.start-page__image_bg(src='@/static/1.jpg')
-      img.start-page__image.start-page__image_author(src='@/static/2.jpg')
+      img.start-page__image.start-page__image_bg(src="@/static/1.jpg")
+      img.start-page__image.start-page__image_author(src="@/static/2.jpg")
       section.pl-2.pr-2.mb-4
         h1.start-page__title.mt-1 Стилист визажист Филипкина Дарья
         b-btn.mb-3(variant='primary' block @click="$router.push('/form')") Записаться
@@ -13,7 +13,7 @@
       hr
       section.pl-3.pr-3
         a(href="https://yandex.ru/maps/-/CCC1FU1~" target="_blank")
-          img.start-page__image.start-page__image_map.mb-2(src='@/static/3.jpg')
+          img.start-page__image.start-page__image_map.mb-2(src="@/static/3.jpg")
         p Моя студия находится в центре города по адресу г. Ульяновск ул. Красноармейская д. 142
         hr
         p Вопросы перед записью:
@@ -21,7 +21,7 @@
           li.mb-2(v-for="question in questions")
             p.start-page__question.mb-1 {{ question.title }}
             span {{ question.answer }} &nbsp;
-            RouterLink(v-if="question.link" :to='question.link') {{ question.linkText }}
+            RouterLink(v-if="question.link" :to="question.link") {{ question.linkText }}
 
 </template>
 
@@ -71,7 +71,7 @@ export default {
         {
           title: 'Выезжаете ли вы к клиенту?',
           answer: 'Да, но выезд нужно будет оплатить отдельно.'
-        },
+        }
       ]
     }
   },
@@ -84,40 +84,40 @@ export default {
 </script>
 
 <style lang='scss'>
-  .start-page {
-    &__image {
-      display: block;
-      margin: auto;
-    }
-
-    &__image_map {
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    &__image_bg {
-      max-width: 768px;
-      height: 50vh;
-      object-fit: cover;
-    }
-
-    &__image_author {
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center;
-      width: 200px;
-      height: 200px;
-      margin-top: -124px;
-    }
-
-    &__list {
-      text-align: left;
-      font-size: 16px;
-    }
-
-    &__question {
-      font-size: 18px;
-      font-weight: 500;
-    }
+.start-page {
+  &__image {
+    display: block;
+    margin: auto;
   }
+
+  &__image_map {
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  &__image_bg {
+    max-width: 768px;
+    height: 50vh;
+    object-fit: cover;
+  }
+
+  &__image_author {
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    width: 200px;
+    height: 200px;
+    margin-top: -124px;
+  }
+
+  &__list {
+    text-align: left;
+    font-size: 16px;
+  }
+
+  &__question {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
 </style>
