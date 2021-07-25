@@ -4,7 +4,7 @@
       img.start-page__image.start-page__image_bg(src='@/static/1.jpg')
       img.start-page__image.start-page__image_author(src='@/static/2.jpg')
       section.pl-2.pr-2.mb-4
-        h1.start-page__title.mt-1 Стилист визажист Филипкина Дарья Тест тест
+        h1.start-page__title.mt-1 Стилист визажист Филипкина Дарья Тест
         b-btn.mb-3(variant='primary' block @click="$router.push('/form')") Записаться
         //b-btn.mr-2(variant='outline-primary') Макияж для себя
         b-btn(variant='outline-primary' @click="linkTo('https://makeupru.ru/')") Стать визажистом
