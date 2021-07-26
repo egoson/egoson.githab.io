@@ -1,7 +1,7 @@
 <template lang='pug'>
   .start-page
     b-container.text-center.pb-5
-      img.start-page__image.start-page__image_bg(src="@/static/1.jpg")
+      img.start-page__image.start-page__image_bg(src="@/static/1.jpg" alt="Сводебные")
       img.start-page__image.start-page__image_author(src="@/static/2.jpg")
       section.pl-2.pr-2.mb-4
         h1.start-page__title.mt-1 Стилист визажист Филипкина Дарья
@@ -13,7 +13,7 @@
       hr
       section.pl-3.pr-3
         a(href="https://yandex.ru/maps/-/CCC1FU1~" target="_blank")
-          img.start-page__image.start-page__image_map.mb-2(src="@/static/3.jpg")
+          img.start-page__image.start-page__image_map.mb-2(src="@/static/3.jpg" alt="Как добраться до студии визажиста Филипкиной Дарьи")
         p Моя студия находится в центре города по адресу г. Ульяновск ул. Красноармейская д. 142
         hr
         p Вопросы перед записью:

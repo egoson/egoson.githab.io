@@ -11,7 +11,7 @@
       b-link.mr-4(href="https://www.instagram.com/stilist_73/" target="_blank") @stilist_73
       a(href="https://www.instagram.com/daryusha006/" target="_blank") @daryusha006
       hr
-      img(src="~/static/4.jpg")
+      img(src="~/static/4.jpg" alt="Работы стилиста визажиста Филипкиной Дарьи")
 
 </template>
 
