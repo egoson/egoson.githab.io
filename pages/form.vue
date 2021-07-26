@@ -22,7 +22,7 @@
                 span.flex-shrink-0 {{ serviceItem.cost }} руб
 
       p.form__service-info.mt-4.mb-2 Информация:
-      span Принимаю на Красноармейской 142
+      span Принимаю на Красноармейской 142 {{ process.env.super_secret }}
       span.d-block Выезд платный (1500 руб)
       a(href="tel:+79021224529") +7 902 122 45 29
       br

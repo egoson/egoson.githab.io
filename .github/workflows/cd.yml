@@ -20,6 +20,12 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
+      - name: Hello world action
+        with:
+          super_secret: ${{ secrets.SuperSecret }}
+        env:
+          super_secret: ${{ secrets.SuperSecret }}
+
       - name: Install dependencies
         run: yarn
 
