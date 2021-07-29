@@ -2,6 +2,16 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
 
+  sitemap: {
+    hostname: "https://stilist73.ru",
+    gzip: true,
+  },
+
+  robots: {
+    UserAgent: "*",
+    Disallow: "/",
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "Стилист Визажист Филипкина Дарья",
@@ -72,6 +82,8 @@ export default {
     "bootstrap-vue/nuxt",
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
+    "@nuxtjs/sitemap",
+    "@nuxtjs/robots",
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
