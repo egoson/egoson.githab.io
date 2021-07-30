@@ -9,7 +9,7 @@ export default {
 
   robots: {
     UserAgent: "*",
-    Disallow: "/",
+    Disallow: "",
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
