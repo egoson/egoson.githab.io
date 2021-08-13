@@ -74,12 +74,6 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     "@nuxtjs/eslint-module",
-    [
-      "@nuxtjs/google-gtag",
-      {
-        id: "GTM-MRH5GV4",
-      },
-    ],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
