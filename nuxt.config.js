@@ -77,7 +77,7 @@ export default {
     [
       "@nuxtjs/google-gtag",
       {
-        id: "G-V4HF3Q0P73",
+        id: "GTM-MRH5GV4",
       },
     ],
   ],
