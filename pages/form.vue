@@ -159,7 +159,7 @@ export default {
           groupServices: [
             {
               title: 'Долговременная укладка бровей + коррекция и окрашивание краской',
-              cost: '1600',
+              cost: '2000',
               brow: true
             },
             {
