@@ -164,7 +164,7 @@ export default {
             },
             {
               title: 'Окрашивание краской / хной',
-              cost: '400',
+              cost: '450',
               brow: true
             },
             {
