@@ -43,6 +43,7 @@
           b-form-checkbox(switch size="lg" name="browDiscount" v-model='browDiscount')
             | Любые услуги на брови -50%&nbsp;😍
           small К полному образу скидка на брови!
+
         hr
         span Телефон
         TheMask.form__input-phone(
@@ -180,7 +181,7 @@ export default {
             },
             {
               title: 'Окрашивание бровей + коррекция',
-              cost: '600',
+              cost: '800',
               brow: true
             }
           ]
