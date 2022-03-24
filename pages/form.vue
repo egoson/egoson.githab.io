@@ -38,11 +38,6 @@
     )
       b-form(@submit.prevent='send')
         b-btn(v-if="selected.title" variant="success" size="sm" disabled) {{ selected.title }}, {{ selected.cost }} руб
-        template(v-if="!selected.brow && selected.browDiscount")
-          hr
-          b-form-checkbox(switch size="lg" name="browDiscount" v-model='browDiscount')
-            | Любые услуги на брови -50%&nbsp;😍
-          small К полному образу скидка на брови!
 
         hr
         span Телефон
@@ -57,8 +52,11 @@
         b-input.mb-2(type="date" name="date" required v-model="date" placeholder="Введите дату")
         span Время
         b-input.mb-4(type="time" name="time" required v-model="time" placeholder="Введите время")
-        input.d-none(name="service" :value="selected.title")
+        span Комментарий
+        b-textarea.mb-4(name="comment" v-model="comment" placeholder="Можете написать время готовности или любой комментарий")
         input.d-none(name="cost" :value="selected.cost")
+        input.d-none(name="service" :value="selected.title")
+        b-input.d-none(name="textTemplate" :value="textTemplate")
         .text-center(v-if="loading")
           b-spinner(variant="primary" centered)
 
@@ -70,6 +68,7 @@
 import { TheMask } from 'vue-the-mask'
 import moment from 'moment'
 import emailjs from 'emailjs-com'
+moment.locale('ru')
 
 export default {
   name: 'Form',
@@ -78,9 +77,9 @@ export default {
     return {
       loading: false,
       modal: false,
-      browDiscount: true,
       selected: {},
       phone: '',
+      comment: '',
       time: moment(new Date()).format('HH:mm'),
       date: moment(new Date()).format('yyyy-MM-D'),
       services: [
@@ -89,33 +88,27 @@ export default {
           groupServices: [
             {
               title: 'На свадьбу',
-              cost: '6000',
-              browDiscount: true
+              cost: '7000',
             },
             {
               title: 'На свадьбу с репетицией',
-              cost: '8500',
-              browDiscount: true
+              cost: '9000',
             },
             {
-              title: 'На фотосессию (при условии предоставления фотографий для публикации)',
-              cost: '2500',
-              browDiscount: true
+              title: 'На фотосессию',
+              cost: '3000',
             },
             {
               title: 'Прическа + макияж',
               cost: '3500',
-              browDiscount: true
             },
             {
               title: 'Полный образ с афрокудрями',
               cost: '4000',
-              browDiscount: true
             },
             {
               title: 'Детский образ',
-              cost: '1500',
-              browDiscount: true
+              cost: '2000',
             }
           ]
         },
@@ -124,24 +117,20 @@ export default {
           groupServices: [
             {
               title: 'Свадебный макияж',
-              cost: '3000'
+              cost: '3500'
             },
             {
               title: 'Макияж любой («совсем как будто не накрашено», «только глаза и губы подчеркнуть» и прочее)',
-              cost: '1800'
+              cost: '2000'
             },
-            {
-              title: 'Детский макияж',
-              cost: '700'
-            }
           ]
         },
         {
           serviceTitle: 'Укладка',
           groupServices: [
             {
-              title: 'Укладк-прически свадебные',
-              cost: '3500'
+              title: 'Укладки-прически свадебные',
+              cost: '4000'
             },
             {
               title: 'Укладки любые («чуть-чуть подзавить», «просто выпрямить, ну и объемчик» и тд)',
@@ -149,11 +138,11 @@ export default {
             },
             {
               title: 'Прически любые («мне только пару прядей подколоть»....)',
-              cost: '2300'
+              cost: '2500'
             },
             {
               title: 'Косички с канеколоном',
-              cost: '1300'
+              cost: '1500'
             },
             {
               title: 'Афрокудри',
@@ -166,12 +155,12 @@ export default {
           groupServices: [
             {
               title: 'Долговременная укладка бровей + коррекция и окрашивание краской',
-              cost: '1600',
+              cost: '2000',
               brow: true
             },
             {
               title: 'Окрашивание краской / хной',
-              cost: '400',
+              cost: '500',
               brow: true
             },
             {
@@ -182,6 +171,11 @@ export default {
             {
               title: 'Окрашивание бровей + коррекция',
               cost: '800',
+              brow: true
+            },
+            {
+              title: 'Окрашивание ресниц',
+              cost: '300',
               brow: true
             }
           ]
@@ -226,6 +220,14 @@ export default {
           ]
         }
       ]
+    }
+  },
+  computed: {
+    textTemplate() {
+      return `Здравствуйте, жду вас ${moment(this.date).format('LL')} в ${this.time}, по адресу - Красноармейская 142, домофон 66. Заходите в железную дверь и
+      идёте вдоль дома до цоколя с вывеской nude studio. Вам туда. Первый кабинет.
+      Мой номер 89021224529. Волосы с вечера помыть, если моете утром - хорошо высушить )
+      пожалуйста, не опаздывайте 🙏🏻❤️ если ознакомились с информацией - напишите что-то в ответ!`
     }
   },
   methods: {
