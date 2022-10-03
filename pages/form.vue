@@ -165,7 +165,7 @@ export default {
             },
             {
               title: 'Коррекция бровей',
-              cost: '400',
+              cost: '500',
               brow: true
             },
             {
