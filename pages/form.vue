@@ -121,7 +121,7 @@ export default {
           groupServices: [
             {
               title: "Свадебный макияж",
-              cost: "4000",
+              cost: "5500",
             },
             {
               title:
@@ -131,11 +131,11 @@ export default {
           ],
         },
         {
-          serviceTitle: "Укладка",
+          serviceTitle: "Работа с волосами",
           groupServices: [
             {
               title: "Укладки-прически свадебные",
-              cost: "5000",
+              cost: "6000",
             },
             {
               title:
