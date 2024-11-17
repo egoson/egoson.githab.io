@@ -14,7 +14,7 @@
       section.pl-3.pr-3
         a(href="https://yandex.ru/maps/-/CCC1FU1~" rel="noreferrer" target="_blank")
           img.start-page__image.start-page__image_map.mb-2(src="@/static/3.jpg" alt="Как добраться до студии визажиста Филипкиной Дарьи")
-        p Моя студия находится в центре города по адресу г. Ульяновск ул. Красноармейская д. 142
+        p Моя студия находится в центре города по адресу г. Ульяновск ул. Дворцовая 5
         hr
         p Вопросы перед записью:
         ul.start-page__list
